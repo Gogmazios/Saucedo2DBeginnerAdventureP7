@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 94962c68495c1bb4dbf25628c88aa096
+guid: a6df2bac10fcf3c4c872608bca70637e
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: WorkinProgressInkdemon
+  - name: FloorBWtiles
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -133,7 +133,7 @@ ScriptedImporter:
       y: 4
       width: 64
       height: 64
-    spriteID: e9a8c6d7110848e40a513d50ebc4b6af
+    spriteID: 53db4c807b9c8224596642a0bc123867
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -146,17 +146,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 4009945048
+      value0: 2549785264
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: WorkinProgressInkdemon
+    name: FloorBWtiles
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: WorkinProgressInkdemon
+    - name: FloorBWtiles
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -164,7 +164,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 64
-      spriteId: e9a8c6d7110848e40a513d50ebc4b6af
+      spriteId: 53db4c807b9c8224596642a0bc123867
     linkedCells: []
     parentIndex: -1
   platformSettings:
