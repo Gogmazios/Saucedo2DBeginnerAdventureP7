@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FloorGrassToBricksCorner_6
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -487065707, guid: 4fb4eb60cbde78c44a0c63c8b475cd9f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.60188675, g: 1, b: 0.72020876, a: 1}
   m_Transform:
     e00: 1
     e01: 0
@@ -33,4 +33,4 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 1
+  m_ColliderType: 0
