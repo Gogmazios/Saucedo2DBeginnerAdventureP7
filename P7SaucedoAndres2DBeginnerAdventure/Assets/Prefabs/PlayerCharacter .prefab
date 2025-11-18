@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 571703481394015325}
   - component: {fileID: 8079039326294660462}
   - component: {fileID: 1003791653403148308}
+  - component: {fileID: 8989773262829245691}
   m_Layer: 0
   m_Name: 'PlayerCharacter '
   m_TagString: Untagged
@@ -173,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   maxHealth: 5
+  timeInvincible: 2
   MoveAction:
     m_Name: Move
     m_Type: 0
@@ -222,3 +224,24 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
+--- !u!95 &8989773262829245691
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6726378822066036346}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 34d36e1bead33a942930d6f3d41aa8fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
