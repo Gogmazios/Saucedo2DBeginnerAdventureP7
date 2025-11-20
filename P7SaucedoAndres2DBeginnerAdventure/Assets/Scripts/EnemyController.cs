@@ -5,66 +5,63 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float speed = 3.0f;
+    public float speed;
     public bool vertical;
-    public float changeTime = 3.0f; 
+    public float changeTime = 3.0f;
 
     Rigidbody2D rigidbody2d;
-
+    Animator animator;
     float timer;
     int direction = 1;
 
-    Animator animator;
-
-    // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-        timer = changeTime;
         animator = GetComponent<Animator>();
-
+        timer = changeTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
-        if( timer < 0)
+
+        if (timer < 0)
         {
-            animator.SetFloat("Move X", 0);
-            animator.SetFloat("Move Y", direction);
             direction = -direction;
             timer = changeTime;
         }
-        else
-        {
-            animator.SetFloat("Move X", direction);
-            animator.SetFloat("Move Y", 0);
-        }
     }
+
     void FixedUpdate()
     {
         Vector2 position = rigidbody2d.position;
-         if (vertical)
+
+        if (vertical)
         {
             position.y = position.y + speed * direction * Time.deltaTime;
+            animator.SetFloat("Move X ", 0);
+            animator.SetFloat("Move Y", direction);
         }
         else
         {
-            position.x = position.x + speed * direction * Time.deltaTime; ;
+            position.x = position.x + speed * direction * Time.deltaTime;
+            animator.SetFloat("Move X", direction);
+            animator.SetFloat("Move Y", 0);
         }
-          
+
 
         rigidbody2d.MovePosition(position);
     }
 
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerController Player = other.gameObject.GetComponent<PlayerController>();
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
-        if (Player != null)
+
+        if (player != null)
         {
-            Player.ChangeHealth(-1);
+            player.ChangeHealth(-1);
         }
     }
 }
