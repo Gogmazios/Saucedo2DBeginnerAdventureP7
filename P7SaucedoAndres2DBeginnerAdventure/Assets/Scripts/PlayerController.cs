@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject projectilePrefab;
     public float speed = 3.0f; 
     public int maxHealth = 5;
     public float timeInvincible = 2;
@@ -30,13 +31,6 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         
-        //QualitySettings,vSyncCount = 0; 
-        //Application.targetFrameRate = 10;
-        //Hamburger, Cheeseburger, bigmac, whopper
-        ////////////////////////////////////////////////
-        //Up dog 
-        //1    1 1 
-        //1 1  1 __
         //Can monkeys do backfilps?
 
         MoveAction.Enable();
@@ -70,6 +64,11 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            Launch();
+        }
     }
     void FixedUpdate()
     {
@@ -96,5 +95,16 @@ public class PlayerController : MonoBehaviour
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
+    }
+
+    void Launch()
+    {
+        GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        Projectile projectile = projectileObject.GetComponent<Projectile>();
+        projectile.Launch(lookDirection, 300);
+
+
+
+        animator.SetTrigger("Launch");
     }
 }
