@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+        PlayerController player = other.GetComponent<PlayerController>();
 
 
         if (player != null)
