@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,10 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);
 
+    AudioSource audiosource;
+    public AudioClip throwSound;
+    public AudioClip hitsound;
+
     public InputAction MoveAction;
   
     // Start is called before the first frame update
@@ -30,6 +35,8 @@ public class PlayerController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+
+        audiosource = GetComponent<AudioSource>(); 
         
         //Can monkeys do backfilps?
 
@@ -106,6 +113,7 @@ public class PlayerController : MonoBehaviour
             }
             isInvincible = true;
             invincibleTimer = timeInvincible;
+            PlaySound(hitsound);
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         UIHealthBar.instance.SetValue(currentHealth/(float)maxHealth);
@@ -120,5 +128,11 @@ public class PlayerController : MonoBehaviour
 
 
         animator.SetTrigger("Launch");
+        PlaySound(throwSound);
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audiosource.PlayOneShot(clip);
     }
 }
