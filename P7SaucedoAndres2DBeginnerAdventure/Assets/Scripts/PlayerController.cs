@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         Vector2 Move = new Vector2(horizontal, vertical);
 
-        if(!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f)) 
+        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
         {
             lookDirection.Set(move.x, move.y);
             lookDirection.Normalize();
@@ -58,36 +58,42 @@ public class PlayerController : MonoBehaviour
         if (isInvincible)
         {
             invincibleTimer -= Time.deltaTime;
-            if(invincibleTimer < 0)
+            if (invincibleTimer < 0)
             {
-                isInvincible = false; 
+                isInvincible = false;
             }
 
         }
 
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             Launch();
         }
 
-        if(Input.GetKeyDown(Keycode.X))
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            RaycastHit2D hit2D = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
-            if(hit2D collider != null)
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+            if(hit.collider != null)
             {
-                Debug.Log("Raycast has hit the object " + hit2D.collider.gameObject);
+                NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
+                if(character != null)
+                {
+                    character.DisplayDialog();
+                }
             }
-    }
+        }
+
     void FixedUpdate()
-    {
-        Vector2 move = MoveAction.ReadValue<Vector2>();
-        Debug.Log(move);
-        Vector2 position = (Vector2)transform.position + move * speed * Time.deltaTime;
-        transform.position = position;
+        {
+            Vector2 move = MoveAction.ReadValue<Vector2>();
+            Debug.Log(move);
+            Vector2 position = (Vector2)transform.position + move * speed * Time.deltaTime;
+            transform.position = position;
 
-        Vector2 postion = rigidbody2d.position;
-        rigidbody2d.MovePosition(position);
+            Vector2 postion = rigidbody2d.position;
+            rigidbody2d.MovePosition(position);
 
+        }
     }
     public void ChangeHealth(int amount)
     {
