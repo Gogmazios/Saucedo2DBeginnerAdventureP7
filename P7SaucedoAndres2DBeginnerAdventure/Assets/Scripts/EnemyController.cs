@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public bool vertical;
     public float changeTime = 3.0f;
-    public ParticleSystem smokeEffect;
+    public ParticleSystem smokeEffectssss;
     public AudioClip fixsound;
 
 
@@ -85,13 +85,7 @@ public class EnemyController : MonoBehaviour
         broken = false;
         GetComponent<Rigidbody2D>().simulated = false;
         animator.SetTrigger("Fixed");
-        smokeEffect.Stop();
-        smokeEffect.Stop();
-
-        if (broken = false)
-        {
-            AudioClip fixsound;
-        }
+        smokeEffectssss.Stop();
     }
 
   
